@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { AppResolver } from './app.resolvers';
 import { AppService } from './app.service';
+import { MetricsModule } from './metrics/metrics.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { AppService } from './app.service';
       autoSchemaFile: `${process.cwd()}/graphql/schema.gql`,
       sortSchema: true,
     }),
+    MetricsModule,
   ],
   providers: [AppService, AppResolver],
 })
